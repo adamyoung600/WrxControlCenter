@@ -6,8 +6,39 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
-
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="/Assets/ArtsyWrx.jpg"
+                    Stretch="UniformToFill"/>
+        </Grid.Background>
+        <GridView x:Name="optionsGridView"
+                  Height="250"
+                  HorizontalAlignment="Stretch" 
+                  VerticalAlignment="Center"
+                  SelectionMode="None"
+                  ItemsSource="{Binding}"
+                  ItemClick="OptionClicked"
+                  IsItemClickEnabled="True">
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Vertical" Margin="30,0,30,0">
+                        <Border BorderThickness="2" BorderBrush="#FF9B8F8F">
+                            <Image Source="{Binding myImage}" 
+                                   Stretch="Fill"
+                                   Height="180" 
+                                   Width="320"
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Top"/>
+                        </Border>
+                        <TextBlock Text="{Binding myTitle}" 
+                                   FontSize="30" 
+                                   HorizontalAlignment="Left"
+                                   VerticalAlignment="Bottom"/>
+                    </StackPanel>
+                </DataTemplate>
+            </GridView.ItemTemplate>
+        </GridView>
     </Grid>
+    
+ 
 </Page>
